@@ -1,0 +1,58 @@
+﻿@model IEnumerable<Car_Factory.Models.Seller>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<img src="~/car.jpg" height="550" width="1120" />
+<img src="~/car1.gif" height="550" width="1120"/>
+<img src="~/car2.gif" height="550" width="1120"/>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.SellerName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ContactNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EmailId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Car_ID)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SellerName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ContactNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EmailId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Car_ID.CarID)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.SellerID">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.SellerID">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.SellerID">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

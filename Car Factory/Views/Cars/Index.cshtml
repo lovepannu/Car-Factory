@@ -1,0 +1,52 @@
+﻿@model IEnumerable<Car_Factory.Models.Car>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CarName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CarModel)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FuelType)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CarName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CarModel)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FuelType)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.CarID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.CarID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.CarID">Delete</a>
+            </td>
+        </tr>
+}
+    <img src="~/caa.gif" height="550" width="1120" /><br /><br />
+    <img src="~/caaa.gif" height="550" width="1120" /><br/><br />
+    <img src="~/caaaa.gif" height="550" width="1120" /><br /><br />
+    <img src="~/caaaaa.gif" height="550" width="1120" /><br /><br />
+    <img src="~/caaaaaaa.gif" height="550" width="1120" /><br /><br />
+    </tbody>
+</table>
