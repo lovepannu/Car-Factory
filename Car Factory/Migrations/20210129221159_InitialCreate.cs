@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
+using System.IO;
 
 namespace Car_Factory.Migrations
 {
@@ -100,7 +101,10 @@ namespace Car_Factory.Migrations
                 name: "IX_Seller_CarID",
                 table: "Seller",
                 column: "CarID");
+            var sqlFile = Path.Combine(".\\Database Script", @"data.sql");
+            migrationBuilder.Sql(File.ReadAllText(sqlFile));
         }
+    
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
